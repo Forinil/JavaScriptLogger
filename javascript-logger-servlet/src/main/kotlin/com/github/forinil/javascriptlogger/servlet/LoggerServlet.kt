@@ -21,7 +21,12 @@ open class LoggerServlet: HttpServlet() {
     private val logger = LoggerFactory.getLogger(LoggerServlet::class.java)
 
     @Throws(ServletException::class, IOException::class)
-    protected fun LoggerServlet.doPost(req: HttpServletRequest, resp: HttpServletResponse) {
+    override fun doPost(req: HttpServletRequest, resp: HttpServletResponse) {
         logger.trace("doPost")
+        resp.contentType = "text/html"
+
+        // Actual logic goes here.
+        val out = resp.writer
+        out.println("{\"result\": \"OK\"}")
     }
 }
