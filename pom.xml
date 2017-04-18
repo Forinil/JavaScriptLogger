@@ -47,11 +47,22 @@
         <mockito.version>2.0.2-beta</mockito.version>
         <slf4j.version>1.7.25</slf4j.version>
         <jackson.version>2.9.0.pr2</jackson.version>
+
+        <!-- plugin versions -->
+        <plugin.cargo.version>1.6.2</plugin.cargo.version>
+        <plugin.compiler.version>3.5.1</plugin.compiler.version>
+
+        <!-- tomcat configuration -->
+        <tomcat.context>testapp</tomcat.context>
+        <tomcat.port>8080</tomcat.port>
+        <tomcat.user>tomcat:tomcat:manager-gui,admin-gui</tomcat.user>
+        <tomcat.debug.args>-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000</tomcat.debug.args>
     </properties>
 
     <modules>
         <module>javascript-logger-webjar</module>
         <module>javascript-logger-servlet</module>
+        <module>javascript-logger-testapp</module>
     </modules>
 
     <dependencyManagement>
@@ -97,10 +108,10 @@
                 <version>${slf4j.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>${jackson.version}</version>
-            </dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -144,7 +155,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.5.1</version>
+                    <version>${plugin.compiler.version}</version>
                     <configuration>
                         <source>${java.version}</source>
                         <target>${java.version}</target>
@@ -171,6 +182,41 @@
                             <goals> <goal>testCompile</goal> </goals>
                         </execution>
                     </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.cargo</groupId>
+                    <artifactId>cargo-maven2-plugin</artifactId>
+                    <version>${plugin.cargo.version}</version>
+                    <configuration>
+                        <container>
+                            <containerId>tomcat9x</containerId>
+                            <zipUrlInstaller>
+                                <url>http://ftp.ps.pl/pub/apache/tomcat/tomcat-9/v9.0.0.M19/bin/apache-tomcat-9.0.0.M19.zip</url>
+                                <downloadDir>${project.basedir}/downloads</downloadDir>
+                                <extractDir>${project.basedir}/extracts</extractDir>
+                            </zipUrlInstaller>
+                        </container>
+                        <configuration>
+                            <type>standalone</type>
+                            <properties>
+                                <cargo.servlet.port>${tomcat.port}</cargo.servlet.port>
+                                <cargo.servlet.users>${tomcat.user}</cargo.servlet.users>
+                                <cargo.start.jvmargs>${tomcat.debug.args}</cargo.start.jvmargs>
+                            </properties>
+                        </configuration>
+                        <deployables>
+                            <deployable>
+                                <groupId>com.github.forinil</groupId>
+                                <artifactId>javascript-logger-testapp</artifactId>
+                                <type>war</type>
+                                <properties>
+                                    <context>${tomcat.context}</context>
+                                </properties>
+                                <pingURL>http://localhost:${tomcat.port}/${tomcat.context}/</pingURL>
+                                <pingTimeout>1000</pingTimeout>
+                            </deployable>
+                        </deployables>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>

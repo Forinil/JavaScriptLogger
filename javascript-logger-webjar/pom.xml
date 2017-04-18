@@ -91,7 +91,7 @@
                             <target>
                                 <echo message="Moving JavaScript Logger WebJar resources - start"/>
                                 <copy todir="${destDir}/js">
-                                    <fileset dir="${project.basedir}/target/js" includes="*"/>
+                                    <fileset dir="${project.basedir}/target/js" includes="**"/>
                                 </copy>
                                 <echo message="Moving JavaScript Logger WebJar resources - end"/>
                             </target>

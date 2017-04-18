@@ -29,6 +29,12 @@ open class LoggerServlet: HttpServlet() {
     private val messageTemplate = "{}::{} - {}"
     private val errorTemplate = messageTemplate + " - {}"
 
+    @Throws(ServletException::class)
+    override fun init() {
+        logger.trace("init")
+        super.init()
+    }
+
     @Throws(ServletException::class, IOException::class)
     override fun doPost(req: HttpServletRequest, resp: HttpServletResponse) {
         logger.trace("doPost")
@@ -63,7 +69,7 @@ open class LoggerServlet: HttpServlet() {
     }
 
     private fun sendResponse(resp: HttpServletResponse, resonseData: ResponseData) {
-        resp.contentType = "text/html"
+        resp.contentType = "application/json"
         val out = resp.writer
         out.println(mapper.writeValueAsString(resonseData))
     }
