@@ -24,11 +24,6 @@
     <dependencies>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-stdlib</artifactId>
-            <version>${kotlin.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib-js</artifactId>
             <version>${kotlin.version}</version>
         </dependency>
@@ -96,7 +91,7 @@
                             <target>
                                 <echo message="Moving JavaScript Logger WebJar resources - start"/>
                                 <copy todir="${destDir}/js">
-                                    <fileset dir="${project.basedir}/target/js" includes="*"/>
+                                    <fileset dir="${project.basedir}/target/js" includes="**"/>
                                 </copy>
                                 <echo message="Moving JavaScript Logger WebJar resources - end"/>
                             </target>
