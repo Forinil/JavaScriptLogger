@@ -1,7 +1,14 @@
 package com.github.forinil.javascriptlogger.webjar
 
 import com.github.forinil.javascriptlogger.webjar.util.LogData
+import com.github.forinil.javascriptlogger.webjar.util.ResponseData
+import com.github.forinil.javascriptlogger.webjar.util.ResponseStatus
+import org.w3c.dom.events.Event
+import org.w3c.xhr.JSON
 import org.w3c.xhr.XMLHttpRequest
+import org.w3c.xhr.XMLHttpRequestResponseType
+
+import kotlin.js.JSON.parse
 
 /**
 * Created by Konrad Botor on 15.04.2017T15:40
@@ -46,6 +53,14 @@ object Logger {
     private fun sendPostRequest(logData: LogData) {
         val xhttp = XMLHttpRequest()
         xhttp.open("POST", "logger", true)
+        xhttp.onreadystatechange = fun(event: Event) {
+            if (xhttp.responseType == XMLHttpRequestResponseType.JSON) {
+                val response: ResponseData = parse(text = xhttp.responseText)
+                if (response.result != ResponseStatus.OK) {
+                    console.error(response.message)
+                }
+            }
+        }
         xhttp.send(logData.toJSON())
     }
 }
