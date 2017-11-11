@@ -41,7 +41,7 @@
         <java.version>1.8</java.version>
 
         <!-- dependency versions -->
-        <kotlin.version>1.1.1</kotlin.version>
+        <kotlin.version>1.1.51</kotlin.version>
         <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
         <junit.version>4.12</junit.version>
         <mockito.version>2.0.2-beta</mockito.version>
@@ -64,6 +64,24 @@
         <module>javascript-logger-servlet</module>
         <module>javascript-logger-testapp</module>
     </modules>
+
+    <repositories>
+        <repository>
+            <id>myMavenRepoRead</id>
+            <url>${myMavenRepoReadUrl}</url>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>myMavenRepoWrite</id>
+            <url>${myMavenRepoWriteUrl}</url>
+        </repository>
+        <snapshotRepository>
+            <id>myMavenRepoWrite</id>
+            <url>${myMavenRepoWriteUrl}</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <dependencyManagement>
         <dependencies>
