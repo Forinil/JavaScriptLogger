@@ -15,4 +15,4 @@ script:
   - ./mvnw clean install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 after_success:
   - ./mvnw test -B
-  - rm -R logs
+  - rm -r logs
