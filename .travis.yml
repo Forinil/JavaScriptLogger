@@ -10,8 +10,14 @@ jdk:
 notifications:
   slack:
     rooms:
-      - forinil:a3dT9lopKm3ZUUcbRtVZUQMr#general
-      - forinil:a3dT9lopKm3ZUUcbRtVZUQMr#javascript-logger   
+      - secure: "GAsU6t9GmVOdS23JZm3LyXMYt0VHNkBJ2hQ0RB4YSX47co1jyatsI3CIZW+9P20JzQhOFZjsyHQ1a7IAbvoAy/ncaQwjPMMd0lrhL4QdOTjLyb06NnuSi4u8T+12y1yVULWOzCehz9nRfThJBWrDpaxZufEwfZzwsZfr16lo1/shd5T6IE3E6N1h1xHxI
+        8BE3D0uf9RvHopmPyRAH3i5J6LBaKbW69AwkYpjLb84tQjkHJ/WTWoRiXTnyrXzzB5XKzMxi8u/8CEpW7Wc815vUPZOhPTUTLB+EsQm5XGq73LkZuBt56X+qN//oenpknlMay+op+zqq4l/yU4goTaJwLQskzjS2d2Wvkwz93tDnNq7VBPcTFCSdEIU76EZRmIHCVdBN
+        6WprjvC+EDkzvTTn8lhv2xusXSnYP71bsf8xXo2FjmlGvcsbwwoH5EKcj9+9Md2xO0rRBp8P6n9M57D32tOi/U7eFGtDIjYRiXlCTkXWdkSZWPDAa9c4TI/+E6xAy+jWaZgAAkPgdnzqffzDVjizn49sGFucIhvnhAU/QNcdZRL/+gnKwErqnXWudRWblFjPop5un+YD
+        zcwbFlW6xLv2+BJjlQtxcp+MTDjZ+J5yVl1wxy/8Hf4rzm81Nvqlt8XoYQLS/XxwnJCCG6On73T5QOhNs3zoaKywjOtda4="
+      - secure: "msbJKvPZObgfAS0Dwq8OkhHtXiaQAkKb/WeP/p/0aNCAPykjOQX2lCruiReVYMejqVyzXxlRpfIQU7/4/lJQU8WLqvgbi5VV397+GBUKx35laIPmAopKofIdfcRmWj97wl6PWmzuumv6v7RTzVJIbq0l9THrYvhix+iMhiwpygHtyUz1fn6FAFQbjQhlA
+        Vi+SKPuZvzDWJ2OoK6aV5c01pAc9JBZfmdKbkHYtR1fweyGyAi8eqySukJNMFWmimvyMTPTC30FNSNeMBJakL9J9NcGq3hkt+nKkzAkIIVNZlLLUQ/jGaOqcb7a5NSaPQRA8hhkG2AIxCmwFSH50LtPXH7rydoiE98BLBJuferUQEtDRGWGn+clEaoYTuO1jO9nl7Ckn
+        aCE8ByfVllqEHTueURXOjaE5lRvzI/TJdUC200HeLVkF7DE21E72wPC20e1cWQpcpTLECk+wQC7D2SBS6Xp76vM59oDAJ0CpHa+/pEUnWu676qpfl+jCA04V07vFRILKNLk+ZObxWFr1yF9UT9Z6yVn3oPwpdAxrSOiIOecgRgATPeZVGti4Tst10olhaTH3d6rqCG7P
+        EbQ6EDo9Oi+5TsHo2AuTGjeVDYckPpaQGklPUTYvODBwZZ4l1xheb/w5Gv8tnHjpB5B6I3yY3trfvvSDTButCrF34W+GPs="
 install:
   # - mvn dependency:go-offline -DexcludeGroupIds=com.github.forinil
   - true
