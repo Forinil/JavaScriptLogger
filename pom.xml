@@ -46,7 +46,7 @@
         <junit.version>4.12</junit.version>
         <mockito.version>2.0.2-beta</mockito.version>
         <slf4j.version>1.7.25</slf4j.version>
-        <jackson.version>2.9.0.pr2</jackson.version>
+        <jackson.version>2.9.10.4</jackson.version>
 
         <!-- plugin versions -->
         <plugin.cargo.version>1.6.2</plugin.cargo.version>
